@@ -1,15 +1,12 @@
 
 from insetrion_sort import insertion_sort
-import time
 from merge_sort import merge_sort
 from selection_sort import selection_sort
 from shell_sort import shell_sort
 from list_generator import generate_decreasing, generate_increasing, generate_random, generate_small_range
 import matplotlib.pyplot as plt
 sotring_algorithms = [insertion_sort,selection_sort,merge_sort,shell_sort]
-# experiments_names = ['RANDOM','INCREASING','DECREASING','REPEATED']
-# experiment_lists = [generate_random,generate_increasing,generate_decreasing,generate_small_range]
-# x = [7,8,9,10,11,12,13,14,15]
+
 
 def experiment_1(algorithm):
     lst_power = 7
@@ -26,7 +23,7 @@ def experiment_1(algorithm):
                 comparisons+=sorted[1]
         result.append((round(comparisons/5),time/5))
         lst_power+=1
-    print(result)
+
     name = 'Random array'
     return result,name
 def experiment_2(algorithm):
@@ -40,7 +37,7 @@ def experiment_2(algorithm):
         comparisons =sorted[1]
         result.append((comparisons,time))
         lst_power+=1
-    print(result)
+
     name = 'Increasing array'
     return result,name
 def experiment_3(algorithm):
@@ -55,7 +52,7 @@ def experiment_3(algorithm):
         comparisons =sorted[1]
         result.append((comparisons,time))
         lst_power+=1
-    print(result)
+
     name = 'Decreasing array'
     return result,name
 def experiment_4(algorithm):
@@ -72,7 +69,7 @@ def experiment_4(algorithm):
                 comparisons+=sorted[1]
         result.append((round(comparisons/3),time/3))
         lst_power+=1
-    print(result)
+
     name = 'Repeated array'
     return result,name
 def save_graph(experiment):
@@ -137,10 +134,8 @@ def save_graph(experiment):
         plt.close()
 
 
-# save_graph([experiment_1(insertion_sort),experiment_1(selection_sort),experiment_1(merge_sort),experiment_1(shell_sort)])
 save_graph([experiment_1(i) for i in sotring_algorithms])
 save_graph([experiment_2(i) for i in sotring_algorithms])
 save_graph([experiment_3(i) for i in sotring_algorithms])
 save_graph([experiment_4(i) for i in sotring_algorithms])
 
-# save_graph(experiment_3(insertion_sort),experiment_3(selection_sort),experiment_3(merge_sort),experiment_3(shell_sort))
